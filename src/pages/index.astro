@@ -1,81 +1,78 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
-
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="He bought it">
+  <main>
+    <div class="image-container">
+      <img src="heboughtit.png" class="with-gradient"/>
+    </div>
+  </main>
 </Layout>
 
 <style>
+	html {
+	  background-color: black;
+	}
+  
+	.image-container {
+	  position: relative;
+	  display: inline-block;
+	}
+  
 	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh;
 	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
+  
+	main img {
+	  box-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.7);
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+  
+	.with-gradient {
+	  position: relative;
+	  z-index: 1;
+	  transition: background-color 0.5s ease;
 	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
+  
+	.image-container::before,
+	.image-container::after {
+	  content: "";
+	  position: absolute;
+	  top: -50px;
+	  left: -50px;
+	  width: calc(100% + 100px);
+	  height: calc(100% + 100px);
+	  opacity: 0.45;
+	  transition: opacity 0.5s ease;
+	  border-radius: 10px; /* Adjust the value as per your preference */
+
+	  
 	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
+  
+	.image-container::before,
+	.image-container::after {
+	  --gradient-opacity: 0.45;
+	  background: linear-gradient(
+    180deg,
+    hsla(0, 100%, 50%, var(--gradient-opacity)),
+    hsla(30, 100%, 50%, var(--gradient-opacity)),
+    hsla(60, 100%, 50%, var(--gradient-opacity)),
+    hsla(90, 100%, 50%, var(--gradient-opacity)),
+    hsla(120, 100%, 50%, var(--gradient-opacity)),
+    hsla(150, 100%, 50%, var(--gradient-opacity)),
+    hsla(180, 100%, 50%, var(--gradient-opacity)),
+    hsla(210, 100%, 50%, var(--gradient-opacity)),
+    hsla(240, 100%, 50%, var(--gradient-opacity)),
+    hsla(270, 100%, 50%, var(--gradient-opacity)),
+    hsla(300, 100%, 50%, var(--gradient-opacity)),
+    hsla(330, 100%, 50%, var(--gradient-opacity))
+);
 	}
-	.instructions strong {
-		color: rgb(var(--accent));
+  
+	.image-container:hover::after {
+	  opacity: 1;
 	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+  </style>
+  
