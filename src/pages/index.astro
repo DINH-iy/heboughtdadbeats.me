@@ -2,77 +2,82 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="He bought it">
-  <main>
-    <div class="image-container">
-      <img src="/heboughtit.png" class="with-gradient"/>
-    </div>
-  </main>
-</Layout>
-
-<style>
-	html {
-	  background-color: black;
-	}
+	<main class="centered">
+	  <div class="image-container">
+		<img src="/heboughtit.png" class="with-gradient"/>
+	  </div>
+	</main>
+  </Layout>
   
-	.image-container {
-	  position: relative;
-	  display: inline-block;
-	}
+  <style>
+	  html {
+		background-color: black;
+	  }
+	
+	  .centered {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	  }
   
-	main {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  height: 100vh;
-	}
+	  .image-container {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		max-width: 100%;
+		max-height: 100%;
+	  }
   
-	main img {
-	  box-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.7);
-	}
-  
-	.with-gradient {
-	  position: relative;
-	  z-index: 1;
-	  transition: background-color 0.5s ease;
-	}
-  
-	.image-container::before,
-	.image-container::after {
-	  content: "";
-	  position: absolute;
-	  top: -50px;
-	  left: -50px;
-	  width: calc(100% + 100px);
-	  height: calc(100% + 100px);
-	  opacity: 0.45;
-	  transition: opacity 0.5s ease;
-	  border-radius: 10px; /* Adjust the value as per your preference */
-
-	  
-	}
-  
-	.image-container::before,
-	.image-container::after {
-	  --gradient-opacity: 0.45;
-	  background: linear-gradient(
-    180deg,
-    hsla(0, 100%, 50%, var(--gradient-opacity)),
-    hsla(30, 100%, 50%, var(--gradient-opacity)),
-    hsla(60, 100%, 50%, var(--gradient-opacity)),
-    hsla(90, 100%, 50%, var(--gradient-opacity)),
-    hsla(120, 100%, 50%, var(--gradient-opacity)),
-    hsla(150, 100%, 50%, var(--gradient-opacity)),
-    hsla(180, 100%, 50%, var(--gradient-opacity)),
-    hsla(210, 100%, 50%, var(--gradient-opacity)),
-    hsla(240, 100%, 50%, var(--gradient-opacity)),
-    hsla(270, 100%, 50%, var(--gradient-opacity)),
-    hsla(300, 100%, 50%, var(--gradient-opacity)),
-    hsla(330, 100%, 50%, var(--gradient-opacity))
-);
-	}
-  
-	.image-container:hover::after {
-	  opacity: 1;
-	}
+	  main img {
+		box-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.7);
+		max-width: 100%;
+		max-height: 100%;
+	  }
+	
+	  .with-gradient {
+		position: relative;
+		z-index: 1;
+		transition: background-color 0.5s ease;
+	  }
+	
+	  .image-container::before,
+	  .image-container::after {
+		content: "";
+		position: absolute;
+		top: -50px;
+		left: -50px;
+		width: calc(100% + 100px);
+		height: calc(100% + 100px);
+		opacity: 0.45;
+		transition: opacity 0.5s ease;
+		border-radius: 10px; /* Adjust the value as per your preference */
+	  }
+	
+	  .image-container::before,
+	  .image-container::after {
+		--gradient-opacity: 0.45;
+		background: linear-gradient(
+		  180deg,
+		  hsla(0, 100%, 50%, var(--gradient-opacity)),
+		  hsla(30, 100%, 50%, var(--gradient-opacity)),
+		  hsla(60, 100%, 50%, var(--gradient-opacity)),
+		  hsla(90, 100%, 50%, var(--gradient-opacity)),
+		  hsla(120, 100%, 50%, var(--gradient-opacity)),
+		  hsla(150, 100%, 50%, var(--gradient-opacity)),
+		  hsla(180, 100%, 50%, var(--gradient-opacity)),
+		  hsla(210, 100%, 50%, var(--gradient-opacity)),
+		  hsla(240, 100%, 50%, var(--gradient-opacity)),
+		  hsla(270, 100%, 50%, var(--gradient-opacity)),
+		  hsla(300, 100%, 50%, var(--gradient-opacity)),
+		  hsla(330, 100%, 50%, var(--gradient-opacity))
+		);
+	  }
+	
+	  .image-container:hover::after {
+		opacity: 1;
+	  }
   </style>
   
